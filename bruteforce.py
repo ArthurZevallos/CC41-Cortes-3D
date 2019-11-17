@@ -91,6 +91,7 @@ def Unificar(G):
         for j in range(3):
             resultado.append(a[i][j])
     return resultado
+    
 
 #print(ordenado)
 #print(resultado)
@@ -145,5 +146,5 @@ with open('cortes.in') as f:
     #print(Medidas)
     #print(ordenamientoBurbuja(Areas))
     
-    #print(Position(Areas))
-    #SepararArea(Ordenar(TC))
+    print(Position(Areas))
+    SepararArea(Ordenar(TC))
