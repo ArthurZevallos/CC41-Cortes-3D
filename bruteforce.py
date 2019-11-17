@@ -144,9 +144,9 @@ with open('cortes.in') as f:
     hola=  BinPacking(Areas, volume)
     print(Posicionar(Unificar(SepararArea(Ordenar(TC)))))
 
-    # 
+    
    # print(Medidas)
    # print(ordenamientoBurbuja(Areas))
     
-   # Sprint(Position(Areas))
+    Sprint(Position(Areas))
     SepararArea(Ordenar(TC))
