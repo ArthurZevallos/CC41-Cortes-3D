@@ -319,6 +319,7 @@ with open('cortes.in') as f:
     CantidadxTipo = []
     TipoxCaja = []
     CantidadTipo = []
+    
  
     line = int(f.readline())
     for i in range(line):
