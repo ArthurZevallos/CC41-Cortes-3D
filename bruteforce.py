@@ -1,5 +1,6 @@
 # Principal|
 
+
 import heapq as hq
 import math
 
@@ -153,13 +154,13 @@ def posicionar(largox,anchoy,altoz,arreglo,TQ):
     Contador4 = 3
     Contador5 = 4
     Contador6 = 5
-    print(arreglo)
+    #print(arreglo)
     ''' for i in range(len(Cantidad)):
         C
         a = []*Cantidad[i]
         a[i]
     print(a) '''
-    print(Cantidad)  
+    #print(Cantidad)  
     x = arreglo[(Cantidad[0]*3)-3]
     #print(x)
     w = arreglo[(Cantidad[0]*3)-2]  #19
@@ -170,13 +171,13 @@ def posicionar(largox,anchoy,altoz,arreglo,TQ):
             
             for j in range(int(Cantidad[0])-1):
                 if z <= altoz:
-                    resultado.append([0,0,z])
+                    resultado.append(([0,0,z],Tipo[0]))
                     z += arreglo[2]
                     #x = arreglo[Cantidad[0]]
                 
                    # print((Cantidad[i]*3)+2)
                 if z > altoz:
-                    resultado.append([0,w,z3])
+                    resultado.append(([0,w,z3],Tipo[0]))
                     z3+=arreglo[2]
                     if z3 > altoz:
                         w += arreglo[(Cantidad[0]*3)-2]
@@ -191,13 +192,13 @@ def posicionar(largox,anchoy,altoz,arreglo,TQ):
             #print(arreglo[(Cantidad[0]*3)+2])
             for j in range(int(Cantidad[1])-1):
                 if z <= altoz:
-                    resultado.append([x,0,z])
+                    resultado.append(([x,0,z],Tipo[1]))
                     z += arreglo[(Cantidad[0]*3)+2]
                     #x = arreglo[Cantidad[0]]
                 
                    # print((Cantidad[i]*3)+2)
                 if z > altoz:
-                    resultado.append([x,w2,z4])
+                    resultado.append(([x,w2,z4],Tipo[1]))
                     z4+=arreglo[(Cantidad[0]*3)+2]
                     if z4 > altoz:
                         w2 += arreglo[(Cantidad[0]*3)+1]
@@ -215,13 +216,13 @@ def posicionar(largox,anchoy,altoz,arreglo,TQ):
             #print(arreglo[(Cantidad[0]*3)+2])
             for j in range(int(Cantidad[2])-1):
                 if z <= altoz:
-                    resultado.append([x3,0,z])
+                    resultado.append(([x3,0,z],Tipo[2]))
                     z += arreglo[((Cantidad[0]*3)+(Cantidad[1]*3))+2]
                     #x = arreglo[Cantidad[0]]
                 
                    # print((Cantidad[i]*3)+2)
                 if z > altoz:
-                    resultado.append([x3,w3,z5])
+                    resultado.append(([x3,w3,z5],Tipo[2]))
                     z5+=arreglo[((Cantidad[0]*3)+(Cantidad[1]*3))+2]
                     if z5 > altoz:
                         w3 += arreglo[((Cantidad[0]*3)+(Cantidad[1]*3))+1]
@@ -238,13 +239,13 @@ def posicionar(largox,anchoy,altoz,arreglo,TQ):
             #print(arreglo[(Cantidad[0]*3)+2])
             for j in range(int(Cantidad[3])-1):
                 if z <= altoz:
-                    resultado.append([x4,0,z])
+                    resultado.append(([x4,0,z],Tipo[3]))
                     z += arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3))+2]
                     #x = arreglo[Cantidad[0]]
                 
                    # print((Cantidad[i]*3)+2)
                 if z > altoz:
-                    resultado.append([x4,w4,z6])
+                    resultado.append(([x4,w4,z6],Tipo[3]))
                     z6+=arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3))+2]
                     if z6 > altoz:
                         w4 += arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3))+1]
@@ -260,19 +261,42 @@ def posicionar(largox,anchoy,altoz,arreglo,TQ):
             #print(arreglo[(Cantidad[0]*3)+2])
             for j in range(int(Cantidad[4])-1):
                 if z <= altoz:
-                    resultado.append([x5,0,z])
+                    resultado.append(([x5,0,z],Tipo[4]))
                     z += arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3))+2]
                     #x = arreglo[Cantidad[0]]
                 
                    # print((Cantidad[i]*3)+2)
                 if z > altoz:
-                    resultado.append([x5,w5,z7])
+                    resultado.append(([x5,w5,z7],Tipo[4]))
                     z7+=arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3))+2]
                     if z7 > altoz:
                         w5 += arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3))+1]
                         z7 = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3))+2]
                     if w5 > anchoy:
                         break
+        
+        '''if Contador6 == i+5:
+            x6 = arreglo[0]+ arreglo[(Cantidad[0]*3)]+arreglo[(Cantidad[1]*3)]+arreglo[(Cantidad[2]*3)]+arreglo[(Cantidad[3]*3)+2]
+            z = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3)+(Cantidad[4]*3))+2]
+            z8 = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3)+(Cantidad[4]*3))+2]
+            w6 = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3)+(Cantidad[4]*3))+1]
+            #print(z4)
+            #print(arreglo[(Cantidad[0]*3)+2])
+            for j in range(int(Cantidad[5])-1):
+                if z <= altoz:
+                    resultado.append(([x6,0,z],Tipo[5]))
+                    z += arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3)+(Cantidad[4]*3))+2]
+                    #x = arreglo[Cantidad[0]]
+                
+                   # print((Cantidad[i]*3)+2)
+                if z > altoz:
+                    resultado.append(([x6,w6,z8],Tipo[5]))
+                    z7+=arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3)+(Cantidad[4]*3))+2]
+                    if z8 > altoz:
+                        w6 += arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3)+(Cantidad[4]*3))+1]
+                        z8 = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3)+(Cantidad[4]*3))+2]
+                    if w5 > anchoy:
+                        break''' 
 
         
      
@@ -294,6 +318,7 @@ with open('cortes.in') as f:
     OrdenarS = []
     CantidadxTipo = []
     TipoxCaja = []
+    CantidadTipo = []
  
     line = int(f.readline())
     for i in range(line):
@@ -310,12 +335,13 @@ with open('cortes.in') as f:
             TC.append(((int(X),int(Y),int(Z)),(int(X)*int(Y)*int(Z))))
             Medidas.append((int(X),int(Y),int(Z)))    
             Areas.append((int(X)*int(Y)*int(Z)))
-            
-        #print(G)
+        print("Tipo de paquete",T," y sus dimensiones")
+        print(G)
     #print(TC)
     #print(Areas)
     for k in range(line):
         OrdenarS.append((OrdenarTC[k],CantidadxTipo[k],TipoxCaja[k]))
+        CantidadTipo.append((CantidadxTipo[k],TipoxCaja[k]))
     AreaTotal = sumarareas(Areas)
     Desperdicio = 100 -((AreaTotal/volume)*100)
     Usado = 100-Desperdicio
@@ -340,7 +366,20 @@ with open('cortes.in') as f:
         #del(QTOrdenado[i][0])
     
     QT = SepararTipo(QTV)
-    #print(QT)  
+    #print(Areas)
+    print("Dimensiones del Contenedor x, y, z")
+    print("X = ",contenedor1, " - Y = ",contenedor2," - Z = ",contenedor3)
+    print("Cantidad de cada tipo de paquete")
+    print(CantidadTipo)  
+    
+
     #print(QT)
  #   ---------------------
-    print(posicionar(20,30,8,Unificar(SepararArea(Ordenar(TC))),QT))
+    #print(posicionar(20,30,8,Unificar(SepararArea(Ordenar(TC))),QT))
+    print("---------------")
+    print("Volumen total del contenedor:",volume)
+    print("Volumen total de los paquetes: ",AreaTotal)
+    print("Espacio de desperdicio: ",Desperdicio,"%")
+    print("UBICACIÓN DE LOS PAQUETES")
+    for line in posicionar(20,30,8,Unificar(SepararArea(Ordenar(TC))),QT):
+        print(line)
