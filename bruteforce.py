@@ -1,6 +1,7 @@
 # Principal|
 
-
+import heapq as hq
+import math
 
 class Bin:
     def __init__(self):
@@ -79,6 +80,22 @@ def SepararArea(arreglo):
 		a.append(arreglo[i][0])
 	
 	return a
+def SepararTipoQ(arreglo):
+	n=len(arreglo)
+	a=[]
+
+	for i in range(n):
+		a.append(arreglo[i][1])
+	
+	return a
+def SepararTipo(arreglo):
+	n=len(arreglo)
+	a=[]
+
+	for i in range(n):
+		a.append((arreglo[i][1],arreglo[i][2]))
+	
+	return a
 
 def Unificar(G):
     ordenado=SepararArea(Ordenar(TC))
@@ -91,11 +108,10 @@ def Unificar(G):
         for j in range(3):
             resultado.append(a[i][j])
     return resultado
-    
 
 #print(ordenado)
 #print(resultado)
-def Posicionar(G):
+'''def Posicionar(G):
     u=Unificar(SepararArea(Ordenar(TC)))
     n=len(u)
     b = []
@@ -106,11 +122,75 @@ def Posicionar(G):
     x = 0
     y = 0
     z = 0
-    arrx.append(x)
+    u3 = []
+    #del(u[0])
+    #arrx.append(x)
     for i in range(n):
-        x = u[i] +x
-        arrx.append(x)
-    return arrx
+        arrx.append(u[i])
+    u.pop(0)
+        #u2 = u.pop(0)
+        #arry.append(u[i])
+        #arrz.append(u[i])
+    return u '''
+def posicionar(largox,anchoy,altoz,arreglo,TQ):
+    Cantidad = SepararArea(TQ)
+    Tipo = SepararTipoQ(TQ)
+    n=len(arreglo)
+    resultado=[]
+    #resultado.append([0,0,0])
+    x = 0#arreglo[0]
+    y = arreglo[1]
+    z = arreglo[2]
+    
+    x2 = 0
+    x2 = 0
+    z2  = arreglo[(Cantidad[0]*3)+2]
+    z3 = arreglo[2]
+    #z2 = arreglo[(Cantidad[0]*3)+2)]
+    Contador = 0
+    Contador2 = 1
+    Contador3 = 2
+    Contador4 = 3
+    Contador5 = 4
+    Contador6 = 5
+    print(arreglo)
+    ''' for i in range(len(Cantidad)):
+        C
+        a = []*Cantidad[i]
+        a[i]
+    print(a) '''
+    #print(Cantidad)  
+    
+    for i in range(len(Cantidad)):
+        if Contador == i:
+            for j in range(int(Cantidad[0])):
+                if z <= altoz:
+                    resultado.append([0,0,z])
+                    z += arreglo[2]
+                    x = arreglo[Cantidad[0]]
+                
+                   # print((Cantidad[i]*3)+2)
+                if z > altoz:
+                    resultado.append([0,arreglo[(Cantidad[0]*3)+2],z3])
+                    z3+=arreglo[2]
+        if Contador2 == i:
+            z = 0
+            for j in range(int(Cantidad[1])):
+                if z <= altoz:
+                    
+                    resultado.append([x,arreglo[(Cantidad[0]*3)-2],z2])
+                    z2 += arreglo[(Cantidad[0]*3)+2]
+                    x = resultado[0]
+                #contador +=1
+
+      
+
+        
+    
+    return resultado
+
+
+#print(posicionar(20,30,8,resultado))
 
 with open('cortes.in') as f:
     contenedor = f.readline().strip()
@@ -119,34 +199,57 @@ with open('cortes.in') as f:
     Medidas = []
     TC = []
     Areas = []
+    OrdenarTC = []
+    OrdenarS = []
+    CantidadxTipo = []
+    TipoxCaja = []
+ 
     line = int(f.readline())
     for i in range(line):
         D = f.readline().strip()
-        T, Q, X, Y, Z = [x for x in D.split(' ')]
-        cantidad = int(T)
-        tipo = Q
+        Q, T, X, Y, Z = [x for x in D.split(' ')]
+        cantidad = int(Q)
+        CantidadxTipo.append((cantidad))
+        tipo = T
+        TipoxCaja.append((tipo))
         G = [[] for _ in range(cantidad)]
+        OrdenarTC.append((int(X)*int(Y)*int(Z)))
         for j in range(cantidad):
             G[j].append(((tipo),(int(X),int(Y),int(Z))))
             TC.append(((int(X),int(Y),int(Z)),(int(X)*int(Y)*int(Z))))
             Medidas.append((int(X),int(Y),int(Z)))    
             Areas.append((int(X)*int(Y)*int(Z)))
-                   
+            
         #print(G)
     #print(TC)
     #print(Areas)
+    for k in range(line):
+        OrdenarS.append((OrdenarTC[k],CantidadxTipo[k],TipoxCaja[k]))
     AreaTotal = sumarareas(Areas)
     Desperdicio = 100 -((AreaTotal/volume)*100)
     Usado = 100-Desperdicio
     #print(AreaTotal)
     #print(Usado)
     
-    hola=  BinPacking(Areas, volume)
-    print(Posicionar(Unificar(SepararArea(Ordenar(TC)))))
+    hola =  BinPacking(Areas, volume)
+    #print(Posicionar(Unificar(SepararArea(Ordenar(TC)))))
+    
+    
+    #print(Medidas)
+    #print(ordenamientoBurbuja(Areas))
+    #print(Position(Areas))
+    #SepararArea(Ordenar(TC))
+    #print(Unificar(SepararArea(Ordenar(TC))))
+    
+### funciones para la cantidad y tipos
 
+    QTV = Ordenar(OrdenarS)
+    #print(QTOrdenado)
+    #for l in range(len(QTOrdenado)):
+        #del(QTOrdenado[i][0])
     
-   # print(Medidas)
-   # print(ordenamientoBurbuja(Areas))
+    QT = SepararTipo(QTOrdenado)
+    #print(QT)  
     
-    Sprint(Position(Areas))
-    SepararArea(Ordenar(TC))
+ #   ---------------------
+    print(posicionar(20,30,8,Unificar(SepararArea(Ordenar(TC))),QT))
