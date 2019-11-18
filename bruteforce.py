@@ -4,49 +4,6 @@
 import heapq as hq
 import math
 
-class Bin:
-    def __init__(self):
-        self.list = []
- 
-    def AñadirPlaca(self, item):
-        self.list.append(item)
- 
-    def suma(self):
-        total = 0
-        for elem in self.list:
-            total += elem
-        return total
- 
-    def Mostrar(self):
-        return self.list
- 
-def BinPacking(arreglo, areaPlancha):
-    """ Returns list of bins with input items inside. """
-    a = []
-    a.append(Bin())
- 
-    for item in arreglo:
-       
-        añadir = False
- 
-        for bin in a:
-            if bin.suma() + item <= areaPlancha:
-                bin.AñadirPlaca(item)
-                añadir = True
-                break
-       
-       
-        if añadir == False:
-            nuevo = Bin()
-            nuevo.AñadirPlaca(item)
-            a.append(nuevo)
- 
-    arreglo = []
-    for bin in a:
-        arreglo.append(bin.Mostrar())
- 
-    return(arreglo)
-
 
 def sumarareas(G):
     n = len(G)
@@ -112,27 +69,7 @@ def Unificar(G):
 
 #print(ordenado)
 #print(resultado)
-'''def Posicionar(G):
-    u=Unificar(SepararArea(Ordenar(TC)))
-    n=len(u)
-    b = []
-    cordenadas = []
-    arrx = []
-    arry = []
-    arrz = []
-    x = 0
-    y = 0
-    z = 0
-    u3 = []
-    #del(u[0])
-    #arrx.append(x)
-    for i in range(n):
-        arrx.append(u[i])
-    u.pop(0)
-        #u2 = u.pop(0)
-        #arry.append(u[i])
-        #arrz.append(u[i])
-    return u '''
+
 def posicionar(largox,anchoy,altoz,arreglo,TQ):
     Cantidad = SepararArea(TQ)
     Tipo = SepararTipoQ(TQ)
@@ -155,11 +92,7 @@ def posicionar(largox,anchoy,altoz,arreglo,TQ):
     Contador5 = 4
     Contador6 = 5
     #print(arreglo)
-    ''' for i in range(len(Cantidad)):
-        C
-        a = []*Cantidad[i]
-        a[i]
-    print(a) '''
+ 
     #print(Cantidad)  
     x = arreglo[(Cantidad[0]*3)-3]
     #print(x)
@@ -319,7 +252,6 @@ with open('cortes.in') as f:
     CantidadxTipo = []
     TipoxCaja = []
     CantidadTipo = []
-    
  
     line = int(f.readline())
     for i in range(line):
@@ -349,17 +281,11 @@ with open('cortes.in') as f:
     #print(AreaTotal)
     #print(Usado)
     
-    hola =  BinPacking(Areas, volume)
     #print(Posicionar(Unificar(SepararArea(Ordenar(TC)))))
     
     
-    #print(Medidas)
-    #print(ordenamientoBurbuja(Areas))
-    #print(Position(Areas))
-    #SepararArea(Ordenar(TC))
-    #print(Unificar(SepararArea(Ordenar(TC))))
     
-### funciones para la cantidad y tipos
+    ### funciones para la cantidad y tipos
 
     QTV = Ordenar(OrdenarS)
     #print(QTOrdenado)
@@ -382,5 +308,5 @@ with open('cortes.in') as f:
     print("Volumen total de los paquetes: ",AreaTotal)
     print("Espacio de desperdicio: ",Desperdicio,"%")
     print("UBICACIÓN DE LOS PAQUETES")
-    for line in posicionar(20,30,8,Unificar(SepararArea(Ordenar(TC))),QT):
+    for line in posicionar(contenedor1,contenedor2,contenedor3,Unificar(SepararArea(Ordenar(TC))),QT):
         print(line)
