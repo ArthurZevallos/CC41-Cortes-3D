@@ -138,7 +138,7 @@ def posicionar(largox,anchoy,altoz,arreglo,TQ):
     n=len(arreglo)
     resultado=[]
     #resultado.append([0,0,0])
-    x = 0#arreglo[0]
+    x = arreglo[0]
     y = arreglo[1]
     z = arreglo[2]
     
@@ -159,32 +159,123 @@ def posicionar(largox,anchoy,altoz,arreglo,TQ):
         a = []*Cantidad[i]
         a[i]
     print(a) '''
-    #print(Cantidad)  
-    
+    print(Cantidad)  
+    x = arreglo[(Cantidad[0]*3)-3]
+    #print(x)
+    w = arreglo[(Cantidad[0]*3)-2]  #19
+    #print(w)
+    #print(Cantidad)
     for i in range(len(Cantidad)):
         if Contador == i:
-            for j in range(int(Cantidad[0])):
+            
+            for j in range(int(Cantidad[0])-1):
                 if z <= altoz:
                     resultado.append([0,0,z])
                     z += arreglo[2]
-                    x = arreglo[Cantidad[0]]
+                    #x = arreglo[Cantidad[0]]
                 
                    # print((Cantidad[i]*3)+2)
                 if z > altoz:
-                    resultado.append([0,arreglo[(Cantidad[0]*3)+2],z3])
+                    resultado.append([0,w,z3])
                     z3+=arreglo[2]
-        if Contador2 == i:
-            z = 0
-            for j in range(int(Cantidad[1])):
+                    if z3 > altoz:
+                        w += arreglo[(Cantidad[0]*3)-2]
+                        z3 = arreglo[2]
+                    if w > anchoy:
+                        break
+        if Contador2 == i+1:
+            z = arreglo[(Cantidad[0]*3)+2]
+            z4 = arreglo[(Cantidad[0]*3)+2]
+            w2 = arreglo[(Cantidad[0]*3)+1]
+            #print(z4)
+            #print(arreglo[(Cantidad[0]*3)+2])
+            for j in range(int(Cantidad[1])-1):
                 if z <= altoz:
-                    
-                    resultado.append([x,arreglo[(Cantidad[0]*3)-2],z2])
-                    z2 += arreglo[(Cantidad[0]*3)+2]
-                    x = resultado[0]
-                #contador +=1
+                    resultado.append([x,0,z])
+                    z += arreglo[(Cantidad[0]*3)+2]
+                    #x = arreglo[Cantidad[0]]
+                
+                   # print((Cantidad[i]*3)+2)
+                if z > altoz:
+                    resultado.append([x,w2,z4])
+                    z4+=arreglo[(Cantidad[0]*3)+2]
+                    if z4 > altoz:
+                        w2 += arreglo[(Cantidad[0]*3)+1]
+                        z4 = arreglo[(Cantidad[0]*3)+2]
+                    if w2 > anchoy:
+                        break
+        if Contador3 == i+2:
+            x3 = arreglo[0]+ arreglo[(Cantidad[0]*3)+2]
+            z = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3))+2]
+            #z100 = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3))+2]
+            #print(z100)
+            z5 = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3))+2]
+            w3 = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3))+1]
+            #print(z4)
+            #print(arreglo[(Cantidad[0]*3)+2])
+            for j in range(int(Cantidad[2])-1):
+                if z <= altoz:
+                    resultado.append([x3,0,z])
+                    z += arreglo[((Cantidad[0]*3)+(Cantidad[1]*3))+2]
+                    #x = arreglo[Cantidad[0]]
+                
+                   # print((Cantidad[i]*3)+2)
+                if z > altoz:
+                    resultado.append([x3,w3,z5])
+                    z5+=arreglo[((Cantidad[0]*3)+(Cantidad[1]*3))+2]
+                    if z5 > altoz:
+                        w3 += arreglo[((Cantidad[0]*3)+(Cantidad[1]*3))+1]
+                        z5 = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3))+2]
+                    if w3 > anchoy:
+                        break
+                        
+        if Contador4 == i+3:
+            x4 = arreglo[0]+ arreglo[(Cantidad[0]*3)]+arreglo[(Cantidad[1]*3)+2]
+            z = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3))+2]
+            z6 = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3))+2]
+            w4 = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3))+1]
+            #print(z4)
+            #print(arreglo[(Cantidad[0]*3)+2])
+            for j in range(int(Cantidad[3])-1):
+                if z <= altoz:
+                    resultado.append([x4,0,z])
+                    z += arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3))+2]
+                    #x = arreglo[Cantidad[0]]
+                
+                   # print((Cantidad[i]*3)+2)
+                if z > altoz:
+                    resultado.append([x4,w4,z6])
+                    z6+=arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3))+2]
+                    if z6 > altoz:
+                        w4 += arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3))+1]
+                        z6 = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3))+2]
+                    if w4 > anchoy:
+                        break
+        if Contador5 == i+4:
+            x5 = arreglo[0]+ arreglo[(Cantidad[0]*3)]+arreglo[(Cantidad[1]*3)]+arreglo[(Cantidad[2]*3)+2]
+            z = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3))+2]
+            z7 = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3))+2]
+            w5 = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3))+1]
+            #print(z4)
+            #print(arreglo[(Cantidad[0]*3)+2])
+            for j in range(int(Cantidad[4])-1):
+                if z <= altoz:
+                    resultado.append([x5,0,z])
+                    z += arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3))+2]
+                    #x = arreglo[Cantidad[0]]
+                
+                   # print((Cantidad[i]*3)+2)
+                if z > altoz:
+                    resultado.append([x5,w5,z7])
+                    z7+=arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3))+2]
+                    if z7 > altoz:
+                        w5 += arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3))+1]
+                        z7 = arreglo[((Cantidad[0]*3)+(Cantidad[1]*3)+(Cantidad[2]*3)+(Cantidad[3]*3))+2]
+                    if w5 > anchoy:
+                        break
 
-      
-
+        
+     
         
     
     return resultado
@@ -248,8 +339,8 @@ with open('cortes.in') as f:
     #for l in range(len(QTOrdenado)):
         #del(QTOrdenado[i][0])
     
-    QT = SepararTipo(QTOrdenado)
+    QT = SepararTipo(QTV)
     #print(QT)  
-    
+    #print(QT)
  #   ---------------------
     print(posicionar(20,30,8,Unificar(SepararArea(Ordenar(TC))),QT))
