@@ -288,9 +288,7 @@ with open('cortes.in') as f:
     ### funciones para la cantidad y tipos
 
     QTV = Ordenar(OrdenarS)
-    #print(QTOrdenado)
-    #for l in range(len(QTOrdenado)):
-        #del(QTOrdenado[i][0])
+  
     
     QT = SepararTipo(QTV)
     #print(Areas)
