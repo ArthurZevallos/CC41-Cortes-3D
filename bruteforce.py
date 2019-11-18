@@ -284,27 +284,34 @@ with open('cortes.in') as f:
     #print(Posicionar(Unificar(SepararArea(Ordenar(TC)))))
     
     
+    #print(Medidas)
+    #print(ordenamientoBurbuja(Areas))
+    #print(Position(Areas))
+    #SepararArea(Ordenar(TC))
+    #print(Unificar(SepararArea(Ordenar(TC))))
     
-    ### funciones para la cantidad y tipos
+### funciones para la cantidad y tipos
 
     QTV = Ordenar(OrdenarS)
-  
-    
+    #print(QTOrdenado)
+    #for l in range(len(QTOrdenado)):
+        #del(QTOrdenado[i][0])
+    Conted = 1
     QT = SepararTipo(QTV)
     #print(Areas)
-    print("Dimensiones del Contenedor x, y, z")
+    '''print("Dimensiones del Contenedor x, y, z")
     print("X = ",contenedor1, " - Y = ",contenedor2," - Z = ",contenedor3)
     print("Cantidad de cada tipo de paquete")
-    print(CantidadTipo)  
-    
+    print(CantidadTipo)  '''
+  
 
     #print(QT)
  #   ---------------------
     #print(posicionar(20,30,8,Unificar(SepararArea(Ordenar(TC))),QT))
-    print("---------------")
+    print("--------------Resultados---------------")
     print("Volumen total del contenedor:",volume)
     print("Volumen total de los paquetes: ",AreaTotal)
     print("Espacio de desperdicio: ",Desperdicio,"%")
     print("UBICACIÓN DE LOS PAQUETES")
     for line in posicionar(contenedor1,contenedor2,contenedor3,Unificar(SepararArea(Ordenar(TC))),QT):
-        print(line)
+        print("Nro Contenedor:",Conted,line)
